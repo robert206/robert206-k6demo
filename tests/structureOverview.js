@@ -6,16 +6,19 @@ export let options = {
     iterations: 100 // Total test duration
 };
 
-export function setup() 
+// Runs only once when test is started
+export function setup()  //optional setup function
 {
     // do some stuff here before 
     // you can pass data from this to other default function  
     // executed only once per test run
 }
 
+
 export default function MainLoop(passedDataFromSetup) {  
     // Main test logic goes here
-    // This is the default function that will be executed by k6    
+    // This is the default function that will be executed by k6 
+    // at least one default function is required in the script   
 }
 
 // Teardown function (Runs once after the test finishes)

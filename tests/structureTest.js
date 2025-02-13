@@ -1,5 +1,5 @@
 import http from 'k6/http';
-import { check, sleep } from 'k6';
+import { check } from 'k6';
 import { generateNewUserBody } from '../common/generateData.js';
 import { htmlReport } from "https://raw.githubusercontent.com/benc-uk/k6-reporter/main/dist/bundle.js";
 import { textSummary } from 'https://jslib.k6.io/k6-summary/0.0.1/index.js';
@@ -8,7 +8,7 @@ import { textSummary } from 'https://jslib.k6.io/k6-summary/0.0.1/index.js';
 export let options = {
     vus: 5,  // Number of Virtual Users
     duration: '5s',
-    iterations: 100 // Total test duration
+    //iterations: 100 // Total test duration
 };
 
 
@@ -34,13 +34,14 @@ export default function (data) {
         username: data.username,
         password: data.password
     });
-    tst();
+
     let res = http.post('https://test-api.k6.io/auth/cookie/login/', body,params);
 
     check(res, {
         'Is Status 200': (r) => r.status === 200,
         'Is Data received < 32kB': (r) => r.body.size < 32768,
     });
+    //sleep(0.5);
 }
 
 
@@ -63,8 +64,8 @@ export function handleSummary(data) {
     const reportName = `report-${timestamp}`;
 
     return {
-        stdout: textSummary(data, { indent: ' ', enableColors: true }), // CLI output
-        [`../reports/${reportName}.html`]: htmlReport(data), // HTML report
-        [`../reports/${reportName}.json`]: JSON.stringify(data, null, 2) // JSON report
+        stdout: textSummary(data, { indent: ' ', enableColors: true }), // CLI output on stdout
+        [`../reports/${reportName}.html`]: htmlReport(data), // HTML report file
+        [`../reports/${reportName}.json`]: JSON.stringify(data, null, 2) // JSON report file
     };
 }

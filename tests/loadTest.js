@@ -18,5 +18,5 @@ export default function () {
         'Returns JSON': (r) => r.headers['Content-Type'] === 'application/json',
     });
 
-    sleep(1); // user think time simulate
+    sleep(1); 
 }
