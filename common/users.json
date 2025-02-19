@@ -1,0 +1,73 @@
+[
+    {
+      "username": "User0604",
+      "first_name": "FirstName0604",
+      "last_name": "LastName0604",
+      "email": "user0604@example.com",
+      "password": "cGFzczA2MDQ="
+    },
+    {
+      "username": "User1234",
+      "first_name": "FirstName1234",
+      "last_name": "LastName1234",
+      "email": "user1234@example.com",
+      "password": "cGFzczEyMzQ="
+    },
+    {
+      "username": "User9876",
+      "first_name": "FirstName9876",
+      "last_name": "LastName9876",
+      "email": "user9876@example.com",
+      "password": "cGFzczk4NzY="
+    },
+    {
+      "username": "User5555",
+      "first_name": "FirstName5555",
+      "last_name": "LastName5555",
+      "email": "user5555@example.com",
+      "password": "cGFzczU1NTU="
+    },
+    {
+      "username": "User2020",
+      "first_name": "FirstName2020",
+      "last_name": "LastName2020",
+      "email": "user2020@example.com",
+      "password": "cGFzczIwMjA="
+    },
+    {
+      "username": "User7777",
+      "first_name": "FirstName7777",
+      "last_name": "LastName7777",
+      "email": "user7777@example.com",
+      "password": "cGFzczc3Nzc3"
+    },
+    {
+      "username": "User1111",
+      "first_name": "FirstName1111",
+      "last_name": "LastName1111",
+      "email": "user1111@example.com",
+      "password": "cGFzczExMTEx"
+    },
+    {
+      "username": "User3333",
+      "first_name": "FirstName3333",
+      "last_name": "LastName3333",
+      "email": "user3333@example.com",
+      "password": "cGFzczMzMzMz"
+    },
+    {
+      "username": "User4444",
+      "first_name": "FirstName4444",
+      "last_name": "LastName4444",
+      "email": "user4444@example.com",
+      "password": "cGFzczQ0NDQ0"
+    },
+    {
+      "username": "User8888",
+      "first_name": "FirstName8888",
+      "last_name": "LastName8888",
+      "email": "user8888@example.com",
+      "password": "cGFzczg4ODg4"
+    }
+  ]
+  

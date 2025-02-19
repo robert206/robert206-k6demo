@@ -4,6 +4,7 @@ import { generateNewUserBody } from '../common/generateData.js';
 import { htmlReport } from "https://raw.githubusercontent.com/benc-uk/k6-reporter/main/dist/bundle.js";
 import { textSummary } from 'https://jslib.k6.io/k6-summary/0.0.1/index.js';
 
+
 // Define test options
 export let options = {
     vus: 5,  // Number of Virtual Users
@@ -16,6 +17,7 @@ export let options = {
 export function setup() {
     const URL = 'https://test-api.k6.io/user/register/';
     let { body, password } = generateNewUserBody();
+    console.log(body);
 
     const response = http.post(URL, body, { headers: { 'Content-Type': 'application/json' } });
 
