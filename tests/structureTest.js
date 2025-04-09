@@ -15,7 +15,8 @@ export let options = {
 
 // Setup function->Runs once before the test starts)
 export function setup() {
-    const URL = 'https://test-api.k6.io/user/register/';
+    //const URL = 'https://test-api.k6.io/user/register/';
+    const URL = 'https://reqres.in/api/users';
     let { body, password } = generateNewUserBody();
     console.log(body);
 
@@ -40,7 +41,7 @@ export default function (data) {
     let res = http.post('https://test-api.k6.io/auth/cookie/login/', body,params);
 
     check(res, {
-        'Is Status 200': (r) => r.status === 200,
+        'Is Status 201': (r) => r.status === 200,
         'Is Data received < 32kB': (r) => r.body.size < 32768,
     });
     //sleep(0.5);
@@ -67,7 +68,7 @@ export function handleSummary(data) {
 
     return {
         stdout: textSummary(data, { indent: ' ', enableColors: true }), // CLI output on stdout
-        [`../reports/${reportName}.html`]: htmlReport(data), // HTML report file
+        [`../reports/${reportName}.html`]: htmlReport(data), // HTML report file -custom theme
         [`../reports/${reportName}.json`]: JSON.stringify(data, null, 2) // JSON report file
     };
 }

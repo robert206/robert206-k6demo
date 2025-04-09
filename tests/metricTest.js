@@ -19,7 +19,7 @@ export let options = {
 export default function () {
     let res = http.get('https://test-api.k6.io/public/crocodiles/');
 
-    // Update custom metrics
+    // Custom metrics
     responseTimeGauge.add(res.timings.duration); // Stores latest response time
     requestCounter.add(1); // Increments request count
     successRate.add(res.status === 200); // Tracks success rate

@@ -12,23 +12,22 @@ const allUsers = new SharedArray('Users data', function() {
 
 
 export let options = {
-  vus: 5,
-  iterations: 5,
+  vus: 2,
+  iterations: 2,
 };
 
 export default function () {
   // Pick a random user from the shared array
   const user = allUsers[Math.floor(Math.random() * allUsers.length)];
-  console.log(allUsers.length);
 
   // Send a request using the user data (example POST request)
-  let res = http.post('https://test-api.k6.io/user/register/', JSON.stringify(user), {
+  let res = http.post('https://reqres.in/api/users', JSON.stringify(user), {
     headers: { 'Content-Type': 'application/json' },
   });
 
   // Check the response status
   check(res, {
-    'Status is 201': (r) => r.status === 200,
+    'Status is 201': (r) => r.status === 201,
   });
 
 }

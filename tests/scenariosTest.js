@@ -9,6 +9,7 @@ export let options = {
             vus: 10,
             iterations: 100,
             maxDuration: '30s',
+            startTime: '5s', // Start after 5 seconds
         },
         // iterations are equally divided among VUs
         per_vu_iterations_scenario: {
@@ -49,8 +50,8 @@ export let options = {
             startRate: 10, // Start with 10 iterations per second
             timeUnit: '1s',
             stages: [
-              { duration: '5s', target: 10 }, // Ramp to 50 requests per second
-              { duration: '10s', target: 100 }, // Ramp to 200 requests per second
+              { duration: '5s', target: 10 }, // Ramp to 10 requests per second
+              { duration: '10s', target: 100 }, // Ramp to 100 requests per second
               { duration: '5s', target: 0 }, // Ramp down to 0
             ],
             preAllocatedVUs: 50,

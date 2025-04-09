@@ -4,7 +4,7 @@ import { check, sleep } from 'k6';
 export let options = {
     VUs: 10,
     iterations: 50,
-    //duration: '10s',
+    duration: '10s',
 };
 
 export default function () {
