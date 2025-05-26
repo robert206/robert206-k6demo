@@ -18,7 +18,7 @@ export function setup() {
     //const URL = 'https://test-api.k6.io/user/register/';
     const URL = 'https://reqres.in/api/users';
     let { body, password } = generateNewUserBody();
-    console.log(body);
+    //console.log(body);
 
     const response = http.post(URL, body, { headers: { 'Content-Type': 'application/json' } });
 

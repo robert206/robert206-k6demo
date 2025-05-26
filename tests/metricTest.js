@@ -3,10 +3,10 @@ import { check, sleep } from 'k6';
 import { Gauge, Counter, Rate, Trend } from 'k6/metrics';
 
 // Define custom metrics
-let responseTimeGauge = new Gauge('response_time_gauge');
-let requestCounter = new Counter('total_requests_counter');
-let successRate = new Rate('success_rate');
-let responseTimeTrend = new Trend('response_time_trend');
+let responseTimeGauge = new Gauge('custom_response_time_gauge');
+let requestCounter = new Counter('Custom_total_requests_counter');
+let successRate = new Rate('Custom_success_rate');
+let responseTimeTrend = new Trend('Custom_search_duration_trend');
 
 export let options = {
     stages: [
@@ -23,7 +23,7 @@ export default function () {
     responseTimeGauge.add(res.timings.duration); // Stores latest response time
     requestCounter.add(1); // Increments request count
     successRate.add(res.status === 200); // Tracks success rate
-    responseTimeTrend.add(res.timings.duration); // Adds response time for trend analysis
+    responseTimeTrend.add(Number(res.timings.duration.toFixed(2))); // Adds response time for trend analysis
 
     check(res, {
         'Status is 200': (r) => r.status === 200,

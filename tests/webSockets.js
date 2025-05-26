@@ -27,7 +27,7 @@ export default function () {
         });
 
         socket.on('error', function error(err) {
-            console.error(`WebSocket error: ${err}`);
+            console.error(`Websocket died : ${err}`);
         });
     });
 

@@ -11,7 +11,7 @@ export let options = {
     thresholds: {
         http_req_failed: ['rate<0.01'],  // Fail if more than 1% of requests fail
         http_req_duration: ['p(95)<500'], // 95% of requests must complete within 500ms
-        http_reqs: ['count>1000'],       // Ensure at least 100 requests are executed
+        http_reqs: ['count>1000'],       // Ensure at least 1000 requests are executed
         iteration_duration: [{ threshold: 'p(90)< 30' }], // 90% of iterations must complete within 1.5s
           
     },
@@ -30,11 +30,14 @@ export default function () {
     /* if ( res.status !== 201) {
         exec.test.abort('I just killed the whole test' + res.status); // =<  test.abort
     } */
+    
     check(res, {
         'Is Status 200': (r) => r.status === 200,
         'Is Response time < 500ms': (r) => r.timings.duration < 500,
         'Does it Returns JSON': (r) => r.headers['Content-Type'] === 'application/json',
-        'Does Body contains keyword': (r) => r.body.includes('crocodile'),
+        'Does Body contains keyword': (r) => r.body.includes('GateNaGlavo'),
+        'Does it contain keyword Pizza': (r) => r.body.includes('Pizza'), 
     });
+    
 
 }

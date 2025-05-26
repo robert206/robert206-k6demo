@@ -12,8 +12,8 @@ const allUsers = new SharedArray('Users data', function() {
 
 
 export let options = {
-  vus: 2,
-  iterations: 2,
+  vus: 10,
+  iterations: 20,
 };
 
 export default function () {

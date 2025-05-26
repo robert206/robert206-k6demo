@@ -3,8 +3,10 @@ import { check } from 'https://jslib.k6.io/k6-utils/1.5.0/index.js';
 
 export const options = {
   scenarios: {
-    ui: {
+    BoboSmradeDoesBrowserTest: {
       executor: 'shared-iterations',
+      vus : 10,
+      iterations: 10,
       options: {
         browser: {
           type: 'chromium',
@@ -13,6 +15,11 @@ export const options = {
     },
   },
   thresholds: {
+    'browser_web_vital_cls': ['max<0.1'],                  // no janky shifts
+    'browser_web_vital_fcp': ['p(95)<1000'],               // fast first paint
+    'browser_web_vital_fid': ['p(95)<100'],                // fast interaction
+    'browser_web_vital_lcp': ['p(95)<2500'],               // full render under 2.5s
+    'browser_web_vital_ttfb': ['p(95)<200'], 
     checks: ['rate==1.0'],
   },
 };
@@ -33,7 +40,7 @@ export default async function () {
     ]);
 
     await check(page.locator("h2"), {
-      'header': async h2 => await h2.textContent() == "Welcome, admin!"
+      'Is header displayed': async h2 => await h2.textContent() == "Welcome, admin!"
     });
   } finally {
     await page.close();
