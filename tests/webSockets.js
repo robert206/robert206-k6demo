@@ -13,7 +13,7 @@ export default function () {
 
     const res = ws.connect(url, null, function (socket) {
         socket.on('open', function open() {
-            console.log('Connected to WebSocket server');
+            console.log('Connected to WebSoket server');
             socket.send('Hello, server!');
         });
 
@@ -27,7 +27,7 @@ export default function () {
         });
 
         socket.on('error', function error(err) {
-            console.error(`Websocket died : ${err}`);
+            console.error(`Websocket died hard : ${err}`);
         });
     });
 
